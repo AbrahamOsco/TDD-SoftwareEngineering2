@@ -1,4 +1,5 @@
 # TP2-TDD
+## Nota 9
 ## Importante (Parseo de json)
 En los json para trabajar el tp no se permite el campo "from" como clave dentro del arguments de tipo DATA, 
 este debe ser cambiado por since, por ejemplo la sgt estructura es la correcta : 
