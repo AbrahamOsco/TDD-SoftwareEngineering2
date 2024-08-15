@@ -1,0 +1,52 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call example with lesser and subtraction",
+        "condition": {
+          "type": "CALL",
+          "name": "<",
+          "arguments":[
+                {
+                  "type":"CALL",
+                  "name":"-",
+                  "arguments":[
+                  {
+                    "type":"CONSTANT",
+                    "value":50
+                  },
+                  {
+                    "type":"CONSTANT",
+                    "value":30
+                  }
+                ]
+              },
+              {
+                "type":"CALL",
+                "name":"-",
+                "arguments":[
+                {
+                  "type":"CONSTANT",
+                  "value":120
+                },
+                {
+                  "type":"CONSTANT",
+                  "value":70
+                }
+              ]
+            }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

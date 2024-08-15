@@ -1,0 +1,32 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call sum min condition",
+        "condition": {
+          "type": "CALL",
+          "name": "+",
+          "arguments":[
+                {
+                  "type": "CONSTANT",
+                  "value": 100.0
+                },
+                {
+                  "type": "CONSTANT",
+                  "value": 203.0
+                }
+          ] 
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

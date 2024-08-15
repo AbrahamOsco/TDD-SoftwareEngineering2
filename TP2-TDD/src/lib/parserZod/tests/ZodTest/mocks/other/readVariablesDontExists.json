@@ -1,0 +1,25 @@
+{
+  "variables": {
+    "aBoolean": false,
+    "anotherBoolean": false
+  },
+  "rules": [
+    {
+      "name": "Comprar 0.01 ETH/USDT y luego vender 0.01 ETH/USDT siempre y and set aBoolean en true",
+      "condition": {
+        "type": "VARIABLE",
+        "name": "AnotherVariable"
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

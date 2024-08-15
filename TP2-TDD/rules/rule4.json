@@ -1,0 +1,68 @@
+{
+  "variables": {
+    "STOP_LOSS_BTC/USDT": 25000,
+    "TAKE_PROFIT_BTC/USDT": 70000,
+    "LAST_SALE_PRICE_BTC/USDT": 65000
+  },
+  "rules": [
+    {
+      "name": "Vender BTC si el precio se desvía demasiado en las últimas 5 minutos",
+      "condition": {
+        "type": "CALL",
+        "name": ">",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "STDDEV",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 300,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 5000
+                }
+              ]
+            }
+          },
+          {
+            "type": "CONSTANT",
+            "value": 1000
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "WALLET",
+            "symbol": "BTC"
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "name": "LAST_SALE_PRICE_BTC/USDT",
+          "value": {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 86400,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 32000
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

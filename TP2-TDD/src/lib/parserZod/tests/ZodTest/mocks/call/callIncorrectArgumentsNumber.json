@@ -1,0 +1,34 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Verificar error de tipos en la suma de dos string",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "+",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+    "variables": {},
+    "rules": [
+      {
+        "name": "rule with <= average and standard desviation ",
+        "condition": {
+          "type": "CALL",
+          "name": "<=",
+          "arguments": [
+            {
+              "type": "CALL",
+              "name": "AVERAGE",
+              "arguments": [
+                {
+                  "type": "CONSTANT",
+                  "value": 10.0
+                },
+                {
+                  "type": "CONSTANT",
+                  "value": 20.0
+                },
+                {
+                  "type": "CONSTANT",
+                  "value": 30.0
+                }
+              ]
+            },
+            {
+              "type":"CALL",
+              "name":"STDDEV",
+              "arguments":[
+              {
+                "type":"CONSTANT",
+                "value":100
+              },
+              {
+                "type":"CONSTANT",
+                "value":200
+              },
+              {
+                "type":"CONSTANT",
+                "value":300
+              }
+              ]
+            }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "VariableLoca",
+            "value": {
+              "type": "CONSTANT",
+              "value": 12
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

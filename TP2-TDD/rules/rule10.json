@@ -1,0 +1,98 @@
+{
+  "variables": {
+    "LAST_SALE_PRICE_BNB/USDT": 608
+  },
+  "rules": [
+    {
+      "name": "Si el precio de BNB/USDT disminuye más de 10% del valor de la última venta, comprar BNB",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BNB/USDT",
+              "since": 600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "LAST_SALE_PRICE_BNB/USDT"
+                }
+              ]
+            }
+          },
+          {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 0.9
+              },
+              {
+                "type": "VARIABLE",
+                "name": "LAST_SALE_PRICE_BNB/USDT"
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "BNB/USDT",
+          "amount": {
+            "type": "CALL",
+            "name": "/",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "STDDEV",
+                "arguments": {
+                  "type": "DATA",
+                  "symbol": "BNB/USDT",
+                  "since": 600,
+                  "until": 0,
+                  "default": [
+                    {
+                      "type": "VARIABLE",
+                      "name": "LAST_SALE_PRICE_BNB/USDT"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "CONSTANT",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "name": "LAST_SALE_PRICE_BNB/USDT",
+          "value": {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BNB/USDT",
+              "since": 600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "LAST_SALE_PRICE_BNB/USDT"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "variables":{},
+  "rules":[
+    {
+    "name": "Si el precio de ETH/USDT disminuyó respecto al precio promedio de los últimos 3 minutos, comprar 0.01 ETH",
+    "condition": {
+      "type": "CALL",
+      "name": "<",
+      "arguments": [
+        {
+          "type": "CALL",
+          "name": "LAST",
+          "arguments": {
+            "type": "DATA",
+            "symbol": "ETH/USDT",
+            "since": 180,
+            "until": 0,
+            "default": [
+              {
+                "type": "CONSTANT",
+                "value": 0.009
+              }
+            ]
+          }
+        },
+        {
+          "type": "CALL",
+          "name": "AVERAGE",
+          "arguments": {
+            "type": "DATA",
+            "symbol": "ETH/USDT",
+            "since": 180,
+            "until": 0,
+            "default": [
+              {
+                "type": "CONSTANT",
+                "value": 3500
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "action": [
+      {
+        "type": "BUY_MARKET",
+        "symbol": "ETH/USDT",
+        "amount": {
+          "type": "CONSTANT",
+          "value": 0.01
+        }
+      }
+    ]
+  }
+  ]
+}

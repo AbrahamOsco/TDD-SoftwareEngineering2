@@ -1,0 +1,29 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Verificar error de desviacion estandar sobre conjunto vacio",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "STDDEV",
+            "arguments": []
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VariableLoca",
+          "value": {
+            "type": "CONSTANT",
+            "value": 12
+          }
+        }
+      ]
+    }
+  ]
+}

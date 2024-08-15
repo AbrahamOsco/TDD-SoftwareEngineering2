@@ -1,0 +1,36 @@
+{
+  "variables": {
+    "VALUE": 0
+  },
+  "rules": [
+    {
+      "name": "la accion modifica la variable con el ultimo valor de btcusdt",
+      "condition": {
+        "type": "CONSTANT",
+        "value": true
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VALUE",
+          "value": {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

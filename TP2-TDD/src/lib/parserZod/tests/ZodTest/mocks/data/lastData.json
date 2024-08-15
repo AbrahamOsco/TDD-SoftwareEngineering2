@@ -1,0 +1,47 @@
+{
+  "variables": {
+    "STOP_LOSS_VALUE_BTC/USDT": 69400,
+    "TAKE_PROFIT_VALUE_BTC/USDT": 69450
+  },
+  "rules": [
+    {
+      "name": "Activar Stop Loss si el precio baja del stop_loss_value",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "STOP_LOSS_VALUE_BTC/USDT"
+                }
+              ]
+            }
+          },
+          {
+            "type": "VARIABLE",
+            "name": "STOP_LOSS_VALUE_BTC/USDT"
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

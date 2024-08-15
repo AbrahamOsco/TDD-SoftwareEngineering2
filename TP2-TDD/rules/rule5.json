@@ -1,0 +1,48 @@
+{
+  "variables":{},
+  "rules":[
+    {
+      "name": "Si el precio de BTC/USDT solo aumenta (o no cambia) en los últimos 5 minutos, vender un 0.01 de todo el BTC disponible",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": {
+          "type": "DATA",
+          "symbol": "BTC/USDT",
+          "since": 300,
+          "until": 0,
+          "default": [
+            {
+              "type": "CONSTANT",
+              "value": 61000
+            },
+            {
+              "type": "CONSTANT",
+              "value": 60000
+            }
+          ]
+        }
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 0.01
+              },
+              {
+                "type": "WALLET",
+                "symbol": "BTC"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

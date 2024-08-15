@@ -1,0 +1,52 @@
+{
+    "variables":{
+        "var1": true,
+        "var2": true,
+        "var3": true,
+        "var4": "pepe",
+        "var5": 30.31
+    },
+    "rules":[
+      {
+        "name": "call example with EQUALS, DISTINCT and variables booleans/strings, numbers",
+        "condition": {
+          "type": "CALL",
+          "name": "==",
+          "arguments":[
+                {
+                    "type":"VARIABLE",
+                    "name":"var1"
+                },
+                {
+                    "type":"VARIABLE",
+                    "name":"var2"
+                },
+                {
+                    "type":"CALL",
+                    "name":"DISTINCT",
+                    "arguments":[
+                    {
+                        "type":"VARIABLE",
+                        "name":"var4"
+                    },
+                    {
+                        "type":"VARIABLE",
+                        "name":"var5"
+                    }
+                  ]
+                }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

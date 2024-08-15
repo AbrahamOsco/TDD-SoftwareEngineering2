@@ -1,0 +1,20 @@
+x-common: &common
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run start
+services:
+  bot_1:
+    <<: *common
+    volumes:
+      - type: bind
+        source: ./rules/rule1.json
+        target: /app/rules/bot.config.json
+        read_only: true
+  bot_2:
+    <<: *common
+    volumes:
+      - type: bind
+        source: ./rules/rule8.json
+        target: /app/rules/bot.config.json
+        read_only: true

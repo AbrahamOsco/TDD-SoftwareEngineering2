@@ -1,0 +1,38 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Verificar error de tipos en la multiplicacion de dos booleanos",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": true
+              },
+              {
+                "type": "CONSTANT",
+                "value": false
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call lesser and negate .",
+        "condition": {
+          "type": "CALL",
+          "name": "<",
+          "arguments":[
+            {
+                "type": "CONSTANT",
+                "value": 123.2
+            },
+            {
+                "type":"CALL",
+                "name":"NEGATE",
+                "arguments":[
+                    {
+                        "type": "CONSTANT",
+                        "value": -500.40
+                    }
+              ]
+            }
+          ] 
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

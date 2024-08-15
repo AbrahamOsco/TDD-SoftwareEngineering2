@@ -1,0 +1,88 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Si el precio de BNB/USDT es igual o menor a la media de la última hora menos dos veces la desviación estándar, comprar 0.2 BNB",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BNB/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 600
+                }
+              ]
+            }
+          },
+          {
+            "type": "CALL",
+            "name": "-",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "AVERAGE",
+                "arguments": {
+                  "type": "DATA",
+                  "symbol": "BNB/USDT",
+                  "since": 3600,
+                  "until": 0,
+                  "default": [
+                    {
+                      "type": "CONSTANT",
+                      "value": 600
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "CALL",
+                "name": "*",
+                "arguments": [
+                  {
+                    "type": "CALL",
+                    "name": "STDDEV",
+                    "arguments": {
+                      "type": "DATA",
+                      "symbol": "BNB/USDT",
+                      "since": 3600,
+                      "until": 0,
+                      "default": [
+                        {
+                          "type": "CONSTANT",
+                          "value": 600
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "CONSTANT",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "BNB/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.2
+          }
+        }
+      ]
+    }
+  ]
+}

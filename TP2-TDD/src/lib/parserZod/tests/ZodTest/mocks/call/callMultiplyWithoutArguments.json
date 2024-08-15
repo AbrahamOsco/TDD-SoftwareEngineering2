@@ -1,0 +1,30 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call multiply without any argument.",
+        "condition": {
+          "type": "CALL",
+          "name": "<=",
+          "arguments":[
+            {
+                "type":"CALL",
+                "name":"*",
+                "arguments":[
+              ]
+            }
+          ] 
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

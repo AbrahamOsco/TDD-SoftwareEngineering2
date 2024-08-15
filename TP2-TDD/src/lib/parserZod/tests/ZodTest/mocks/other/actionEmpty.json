@@ -1,0 +1,18 @@
+{
+    "variables":{
+       "variableIncorrect1":{"hello": "world"}
+    },
+    "rules":[
+       {
+          "name":"Escape",
+          "condition":{
+             "type":"CONSTANT",
+             "value":true,
+             "arguments":[
+             ]
+          },
+          "action":[
+          ]
+       }
+    ]
+ }

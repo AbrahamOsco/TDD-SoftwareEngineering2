@@ -1,0 +1,38 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Verificar error aritmetico de division por cero",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "/",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 10
+              },
+              {
+                "type": "CONSTANT",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VariableLoca",
+          "value":{
+            "type":"CONSTANT",
+            "value":12
+          }
+        }
+      ]
+    }
+  ]
+}

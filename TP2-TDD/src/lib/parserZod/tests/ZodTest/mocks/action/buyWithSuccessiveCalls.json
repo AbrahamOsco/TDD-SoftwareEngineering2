@@ -1,0 +1,64 @@
+{
+  "variables": {
+    "VALUE": 0
+  },
+  "rules": [
+    {
+      "name": "La accion realiza una compra de BNB con el valor (7-2*9/3)/10",
+      "condition": {
+        "type": "CONSTANT",
+        "value": true
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "BNB/USDT",
+          "amount": {
+            "type": "CALL",
+            "name": "/",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "-",
+                "arguments": [
+                  {
+                    "type": "CONSTANT",
+                    "value": 7
+                  },
+                  {
+                    "type": "CALL",
+                    "name": "*",
+                    "arguments": [
+                      {
+                        "type": "CONSTANT",
+                        "value": 2
+                      },
+                      {
+                        "type": "CALL",
+                        "name": "/",
+                        "arguments": [
+                          {
+                            "type": "CONSTANT",
+                            "value": 9
+                          },
+                          {
+                            "type": "CONSTANT",
+                            "value": 3
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "CONSTANT",
+                "value": 10
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "variables": {
+    "PRICE_LIMIT_BTC/USDT": 30000,
+    "TRADE_AMOUNT_BTC": 0.00021
+  },
+  "rules": [
+    {
+      "name": "Comprar BTC si el precio es menor que el promedio en las últimos 5 minutos",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 300,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 70000
+                }
+              ]
+            }
+          },
+          {
+            "type": "CALL",
+            "name": "AVERAGE",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "BTC/USDT",
+              "since": 300,
+              "until": 0,
+              "default": [
+                {
+                  "type": "CONSTANT",
+                  "value": 70000
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "VARIABLE",
+            "name": "TRADE_AMOUNT_BTC"
+          }
+        }
+      ]
+    }
+  ]
+}

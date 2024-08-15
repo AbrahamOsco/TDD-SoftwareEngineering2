@@ -1,0 +1,67 @@
+{
+  "variables": {
+    "aBoolean": false,
+    "anotherBoolean": false
+  },
+  "rules": [
+    {
+      "name": "Comprar 0.009 ETH/USDT and set aBoolean en true",
+      "condition": {
+        "type": "CONSTANT",
+        "value": true
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "ETH/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.009
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "sell 0.01 BNB/USDT and then buy 0.01 BNB/USDT if aBoolean is true",
+      "condition": {
+        "type": "VARIABLE",
+        "name": "aBoolean"
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VariableLoca",
+          "value": {
+            "type": "CONSTANT",
+            "value": 12
+          }
+        }
+      ]
+    },
+    {
+      "name": "Buy 0.01 of bnb if anotherBoolean is true",
+      "condition": {
+        "type": "VARIABLE",
+        "name": "anotherBoolean"
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VariableLoca",
+          "value": {
+            "type": "CONSTANT",
+            "value": 12
+          }
+        }
+      ]
+    }
+  ]
+}

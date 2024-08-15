@@ -1,0 +1,44 @@
+{
+  "variables": {
+    "VALUE": 0
+  },
+  "rules": [
+    {
+      "name": "la accion modifica la variable con el valor 2*2+1",
+      "condition": {
+        "type": "CONSTANT",
+        "value": true
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VALUE",
+          "value": {
+            "type": "CALL",
+            "name": "+",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "*",
+                "arguments": [
+                  {
+                    "type": "CONSTANT",
+                    "value": 2
+                  },
+                  {
+                    "type": "CONSTANT",
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "type": "CONSTANT",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

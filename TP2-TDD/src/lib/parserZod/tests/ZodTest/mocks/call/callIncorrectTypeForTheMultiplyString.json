@@ -1,0 +1,38 @@
+{
+  "variables": {},
+  "rules": [
+    {
+      "name": "Verificar error de tipos en la multiplicacion de dos string",
+      "condition": {
+        "type": "CALL",
+        "name": "<=",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": "var1"
+              },
+              {
+                "type": "CONSTANT",
+                "value": "var2"
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "aBoolean",
+          "value": {
+            "type": "CONSTANT",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

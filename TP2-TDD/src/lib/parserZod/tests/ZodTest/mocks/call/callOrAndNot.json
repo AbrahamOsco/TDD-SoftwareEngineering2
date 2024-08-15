@@ -1,0 +1,46 @@
+{
+    "variables":{
+        "var1": false,
+        "var2": false,
+        "var3": false
+    },
+    "rules":[
+      {
+        "name": "call example with OR and NOT.",
+        "condition": {
+          "type": "CALL",
+          "name": "OR",
+          "arguments":[
+                {
+                    "type":"VARIABLE",
+                    "name":"var1"
+                },
+                {
+                    "type":"VARIABLE",
+                    "name":"var2"
+                },
+                {
+                    "type":"CALL",
+                    "name":"NOT",
+                    "arguments":[
+                    {
+                        "type":"VARIABLE",
+                        "name":"var3"
+                    }
+                  ]
+                }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

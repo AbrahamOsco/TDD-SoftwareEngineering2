@@ -1,0 +1,21 @@
+{
+    "variables":{
+       "aVar":"hello"
+    },
+    "rules":[
+       {
+          "name":"Escape",
+          "condition":{},
+          "action":[
+             {
+                "type":"SELL_MARKET",
+                "symbol":"BTC/USDT",
+                "amount":{
+                   "type":"WALLET",
+                   "symbol":"BTC"
+                }
+             }
+          ]
+       }
+    ]
+ }

@@ -1,0 +1,44 @@
+{
+  "variables": {
+    "BOOLEAN": true
+  },
+  "rules": [
+    {
+      "name": "se crea una condicion con operaciones",
+      "condition": {
+        "type": "CALL",
+        "name": "AND",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": ">",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 4
+              },
+              {
+                "type": "CONSTANT",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "type": "VARIABLE",
+            "name": "BOOLEAN"
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "BOOLEAN",
+          "value": {
+            "type": "CONSTANT",
+            "value": false
+          }
+        }
+      ]
+    }
+  ]
+}

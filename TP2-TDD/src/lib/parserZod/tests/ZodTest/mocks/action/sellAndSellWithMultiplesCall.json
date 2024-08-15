@@ -1,0 +1,44 @@
+{
+  "variables": {
+    "VALUE": 0.0002
+  },
+  "rules": [
+    {
+      "name": "la accion modifica la variable con el ultimo valor de btcusdt",
+      "condition": {
+        "type": "CONSTANT",
+        "value": true
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "/",
+                "arguments": [
+                  {
+                    "type": "CONSTANT",
+                    "value": 100
+                  },
+                  {
+                    "type": "CONSTANT",
+                    "value": 100
+                  }
+                ]
+              },
+              {
+                "type": "VARIABLE",
+                "name": "VALUE"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

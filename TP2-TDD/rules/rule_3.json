@@ -1,0 +1,86 @@
+{
+  "variables": {
+    "TAKE_PROFIT_VALUE_SOL/USDT": 149,
+    "STOP_LOSS_VALUE_SOL/USDT": 148
+  },
+  "rules": [
+    {
+      "name": "Activar Stop Loss si el precio baja del stop_loss_value",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "SOL/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "STOP_LOSS_VALUE_SOL/USDT"
+                }
+              ]
+            }
+          },
+          {
+            "type": "VARIABLE",
+            "name": "STOP_LOSS_VALUE_SOL/USDT"
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "SOL/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Activar Take Profit si el precio sube del take_profit_value",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "SOL/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "TAKE_PROFIT_VALUE_SOL/USDT"
+                }
+              ]
+            }
+          },
+          {
+            "type": "VARIABLE",
+            "name": "TAKE_PROFIT_VALUE_SOL/USDT"
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "SOL/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "variables": {
+    "LAST_PURCHASE_PRICE": 149
+  },
+  "rules": [
+    {
+      "name": "Se compra si el precio baja un 1% desde el último precio de compra",
+      "condition": {
+        "type": "CALL",
+        "name": "<",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "SOL/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "LAST_PURCHASE_PRICE"
+                }
+              ]
+            }
+          },
+          {
+            "type": "CALL",
+            "name": "*",
+            "arguments": [
+              {
+                "type": "CONSTANT",
+                "value": 0.01
+              },
+              {
+                "type": "VARIABLE",
+                "symbol": "LAST_PURCHASE_PRICE"
+              }
+            ]
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "SOL/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.1
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "name": "LAST_PURCHASE_PRICE",
+          "value": {
+            "type": "CALL",
+            "name": "LAST",
+            "arguments": {
+              "type": "DATA",
+              "symbol": "SOL/USDT",
+              "since": 3600,
+              "until": 0,
+              "default": [
+                {
+                  "type": "VARIABLE",
+                  "name": "LAST_PURCHASE_PRICE"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

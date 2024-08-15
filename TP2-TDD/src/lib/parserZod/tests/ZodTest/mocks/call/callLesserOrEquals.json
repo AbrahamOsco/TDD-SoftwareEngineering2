@@ -1,0 +1,50 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "Si el precio de BTC/USDT solo aumenta (o no cambia) en los últimos 5 minutos, vender un 0.01 de BTC y luego compras 0.01 BTC",
+        "condition": {
+          "type": "CALL",
+          "name": "<=",
+          "arguments": [
+            {"type": "CALL",
+              "name": "*",
+              "arguments": [
+                {
+                  "type": "CONSTANT",
+                  "value": 0.01
+                },
+                {
+                  "type": "CONSTANT",
+                  "value": 0.01
+                }
+            ]
+            },
+            {"type": "CALL",
+              "name": "+",
+              "arguments": [
+                {
+                  "type": "CONSTANT",
+                  "value": 10.0
+                },
+                {
+                  "type": "CONSTANT",
+                  "value": 20.0
+                }
+            ]
+            }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

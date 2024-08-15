@@ -1,0 +1,26 @@
+{
+    "variables":{
+       "variableIncorrect1":{"hello": "world"}
+    },
+    "rules":[
+       {
+          "name":"Escape",
+          "condition":{
+             "type":"CONSTANT",
+             "value":true,
+             "arguments":[
+             ]
+          },
+          "action":[
+             {
+                "type":"SELL_MARKET",
+                "symbol":"BTC/USDT",
+                "amount":{
+                   "type":"WALLET",
+                   "symbol":"BTC"
+                }
+             }
+          ]
+       }
+    ]
+ }

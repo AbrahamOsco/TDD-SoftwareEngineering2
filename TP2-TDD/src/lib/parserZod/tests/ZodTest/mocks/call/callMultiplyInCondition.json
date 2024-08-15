@@ -1,0 +1,37 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call multiply in conditon.",
+        "condition": {
+          "type": "CALL",
+          "name": "*",
+          "arguments":[
+            {
+                "type":"CALL",
+                "name":"*",
+                "arguments":[
+                    {
+                        "type": "CONSTANT",
+                        "value": 123.2
+                    },{
+                        "type": "CONSTANT",
+                        "value": 412.2
+                    }
+              ]
+            }
+          ] 
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,40 @@
+{
+  "variables": {
+    "PRICE_DIFFERENCE_THRESHOLD": 2000
+  },
+  "rules": [
+    {
+      "name": "Verificar si el precio de BTC/USDT varía entre tres minutos atrás y un minuto atrás",
+      "condition": {
+        "type": "CALL",
+        "name": "DISTINCT",
+        "arguments": {
+          "type": "DATA",
+          "symbol": "BTC/USDT",
+          "since": 3,
+          "until": 1,
+          "default": [
+            {
+              "type": "CONSTANT",
+              "value": 70000
+            },
+            {
+              "type": "CONSTANT",
+              "value": 70000
+            }
+          ]
+        }
+      },
+      "action": [
+        {
+          "type": "BUY_MARKET",
+          "symbol": "ETH/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.0002
+          }
+        }
+      ]
+    }
+  ]
+}

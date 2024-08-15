@@ -1,0 +1,43 @@
+{
+    "variables":{
+       "LIMIT_VALUE_BTC/USDT":65000,
+       "DOGE_COIN": 34.50,
+       "ETH_AMOUNT": "71.22",
+       "ABoolean": true
+    },
+    "rules":[
+       {
+          "name":"Escape",
+          "condition":{
+             "type":"CALL",
+             "name":"Another functon",
+             "arguments":[
+                {
+                   "type":"CALL",
+                   "name":"+",
+                   "arguments":[
+                      {
+                         "type":"CONSTANT",
+                         "value":1
+                      },
+                      {
+                         "type":"CONSTANT",
+                         "value":2
+                      }
+                   ]
+                }
+             ]
+          },
+          "action":[
+             {
+                "type":"SELL_MARKET",
+                "symbol":"BTC/USDT",
+                "amount":{
+                   "type":"WALLET",
+                   "symbol":"BTC"
+                }
+             }
+          ]
+       }
+    ]
+ }

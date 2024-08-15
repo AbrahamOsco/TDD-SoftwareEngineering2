@@ -1,0 +1,60 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call example with greater and min, max",
+        "condition": {
+          "type": "CALL",
+          "name": ">=",
+          "arguments":[
+                {
+                  "type":"CALL",
+                  "name":"MIN",
+                  "arguments":[
+                  {
+                    "type":"CONSTANT",
+                    "value":190
+                  },
+                  {
+                    "type":"CONSTANT",
+                    "value":220
+                  },
+                  {
+                    "type":"CONSTANT",
+                    "value":491
+                  }
+                ]
+              },
+              {
+                "type":"CALL",
+                "name":"MAX",
+                "arguments":[
+                {
+                  "type":"CONSTANT",
+                  "value":30
+                },
+                {
+                  "type":"CONSTANT",
+                  "value":20
+                },
+                {
+                    "type":"CONSTANT",
+                    "value":99
+                }
+              ]
+            }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,46 @@
+{
+    "variables":{},
+    "rules":[
+      {
+        "name": "call Negate with more that 1 argument .",
+        "condition": {
+          "type": "CALL",
+          "name": "<",
+          "arguments":[
+            {
+                "type": "CONSTANT",
+                "value": 123.2
+            },
+            {
+                "type":"CALL",
+                "name":"NEGATE",
+                "arguments":[
+                    {
+                        "type": "CONSTANT",
+                        "value": -500.40
+                    },
+                    {
+                        "type": "CONSTANT",
+                        "value": 20.40
+                    },
+                    {
+                        "type": "CONSTANT",
+                        "value": 40.40
+                    }
+              ]
+            }
+          ] 
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

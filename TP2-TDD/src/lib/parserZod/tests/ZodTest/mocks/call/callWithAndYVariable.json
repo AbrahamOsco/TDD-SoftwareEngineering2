@@ -1,0 +1,40 @@
+{
+    "variables":{
+        "var1": true,
+        "var2": true,
+        "var3": true
+    },
+    "rules":[
+      {
+        "name": "call example with AND and variables booleans",
+        "condition": {
+          "type": "CALL",
+          "name": "AND",
+          "arguments":[
+                {
+                    "type":"VARIABLE",
+                    "name":"var1"
+                },
+                {
+                    "type":"VARIABLE",
+                    "name":"var2"
+                },
+                {
+                    "type":"VARIABLE",
+                    "name":"var3"
+                }
+          ]
+        },
+        "action": [
+          {
+            "type": "SET_VARIABLE",
+            "name": "aBoolean",
+            "value": {
+              "type": "CONSTANT",
+              "value": true
+            }
+          }
+        ]
+      }
+    ]
+  }

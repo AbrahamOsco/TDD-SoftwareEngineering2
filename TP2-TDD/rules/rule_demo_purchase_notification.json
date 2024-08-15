@@ -1,0 +1,32 @@
+{
+  "variables": {
+    "BOOLEAN": true
+  },
+  "rules": [
+    {
+      "name": "se realiza una compra ante el primer cambio significativo",
+      "condition": {
+        "type": "VARIABLE",
+        "name": "BOOLEAN"
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "BOOLEAN",
+          "value": {
+            "type": "CONSTANT",
+            "value": false
+          }
+        },
+        {
+          "type": "BUY_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.0002
+          }
+        }
+      ]
+    }
+  ]
+}

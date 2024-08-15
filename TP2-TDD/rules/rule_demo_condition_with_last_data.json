@@ -1,0 +1,57 @@
+{
+  "variables": {
+    "STOP_LOSS_VALUE_BTC/USDT": 70000,
+    "BOOLEAN": true
+  },
+  "rules": [
+    {
+      "name": "Se evalua en la condicion usando el ultimo precio del historial usando data.",
+      "condition": {
+        "type": "CALL",
+        "name": "AND",
+        "arguments": [
+          {
+            "type": "CALL",
+            "name": "<",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "LAST",
+                "arguments": {
+                  "type": "DATA",
+                  "symbol": "BTC/USDT",
+                  "since": 3600,
+                  "until": 0,
+                  "default": [
+                    {
+                      "type": "VARIABLE",
+                      "name": "STOP_LOSS_VALUE_BTC/USDT"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "VARIABLE",
+                "name": "STOP_LOSS_VALUE_BTC/USDT"
+              }
+            ]
+          },
+          {
+            "type": "VARIABLE",
+            "name": "BOOLEAN"
+          }
+        ]
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "BOOLEAN",
+          "value": {
+            "type": "CONSTANT",
+            "value": false
+          }
+        }
+      ]
+    }
+  ]
+}

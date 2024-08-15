@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "LIMIT_VALUE_BTC/USDT": 65000,
+    "STABLE_PRICE_THRESHOLD": 2000
+  },
+  "rules": [
+    {
+      "name": "Verificar si el precio de BTC/USDT se mantiene constante entre dos minutos atrás y un minuto atrás",
+      "condition": {
+        "type": "CALL",
+        "name": "==",
+        "arguments": {
+          "type": "DATA",
+          "symbol": "BTC/USDT",
+          "since": 120,
+          "until": 60,
+          "default": [
+            {
+              "type": "CONSTANT",
+              "value": 2000
+            },
+            {
+              "type": "CONSTANT",
+              "value": 2001
+            }
+          ]
+        }
+      },
+      "action": [
+        {
+          "type": "SELL_MARKET",
+          "symbol": "BTC/USDT",
+          "amount": {
+            "type": "CONSTANT",
+            "value": 0.00037
+          }
+        }
+      ]
+    }
+  ]
+}

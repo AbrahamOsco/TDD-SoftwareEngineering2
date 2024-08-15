@@ -1,0 +1,53 @@
+{
+  "variables": {
+    "BOOLEAN": true,
+    "VALUE": 10
+  },
+  "rules": [
+    {
+      "name": "se realiza una accion que setea una variable con el valor 2*2+1 ante el primer cambio significativo",
+      "condition": {
+        "type": "VARIABLE",
+        "name": "BOOLEAN"
+      },
+      "action": [
+        {
+          "type": "SET_VARIABLE",
+          "name": "VALUE",
+          "value": {
+            "type": "CALL",
+            "name": "+",
+            "arguments": [
+              {
+                "type": "CALL",
+                "name": "*",
+                "arguments": [
+                  {
+                    "type": "CONSTANT",
+                    "value": 2
+                  },
+                  {
+                    "type": "CONSTANT",
+                    "value": 2
+                  }
+                ]
+              },
+              {
+                "type": "CONSTANT",
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "SET_VARIABLE",
+          "name": "BOOLEAN",
+          "value": {
+            "type": "CONSTANT",
+            "value": false
+          }
+        }
+      ]
+    }
+  ]
+}
