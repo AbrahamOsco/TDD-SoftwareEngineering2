@@ -31,4 +31,6 @@ En el archivo `compose.yaml` se pueden configurar todas las intancias deseadas d
 
 
 ## Informe (PDF + Link):
-<a href="./Trabajo Práctico N°_ 2  Crypto Monitor.pdf"> Informe del TP2 </a>
+1. Online: https://docs.google.com/document/d/1_mia3v08CoVGhOFgZxGqjzJ65WGGB35lvxbP5DvUmTw/edit
+
+2. PDF <a href="./Trabajo Práctico N°_ 2  Crypto Monitor.pdf"> Informe del TP2 </a>
