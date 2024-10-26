@@ -59,7 +59,7 @@ Tenemos 3 recursos principales:
 ### Register
 
 1. **Descripción del Endpoint**:
-    - **Método**: GET
+    - **Método**: POST
     - **Ruta**: `/auth/register`
     - **Descripción**: Este endpoint se utiliza para registrar nuevos usuarios en el sistema.
 2. **Parámetros de Solicitud**:
